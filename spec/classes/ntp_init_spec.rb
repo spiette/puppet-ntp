@@ -16,9 +16,6 @@ describe 'ntp' do
       should create_file('/etc/ntp.conf')\
       .with_content(/^server pool.ntp.org$/)
     }
-    it {
-      should create_service('ntpd')
-    }
   end
 
   describe 'ntp class with service parameter' do 
@@ -42,5 +39,12 @@ describe 'ntp' do
     it {
       should create_service('ntpd')
     }
+  end
+  ['Debian', 'RedHat'].each do |osfamily|
+    if osfamily == 'RedHat' 
+      it { should create_service('ntpd') }
+    else
+      it { should create_service('ntp') }
+    end
   end
 end
