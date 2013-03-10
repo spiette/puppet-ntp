@@ -1,0 +1,8 @@
+name    'spiette-ntp'
+version '0.5.0'
+source 'http://github.com/spiette/spiette-ntp'
+author 'Simon Piette'
+license 'Apache License, Version 2.0'
+summary 'Manage ISC ntp'
+description 'Manage ISC ntp for Debian and RedHat OS family'
+project_page 'http://github.com/spiette/spiette-ntp'
