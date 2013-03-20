@@ -48,12 +48,14 @@
 #
 #
 class ntp (
-    $servers = [ 'pool.ntp.org' ],
-    $options = {},
+  $servers = [ 'pool.ntp.org' ],
+  $options = {},
   ) {
-  Class['ntp::install']->Class['ntp::config']~>Class['ntp::service']
+
+  Class["${module_name}::install"]->
+  Class["${module_name}::config"]~>
+  Class["${module_name}::service"]
   include ntp::install
   include ntp::config
   include ntp::service
 }
-
